@@ -1,0 +1,11 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+._*
+
+# logs
+*.log
+error_log
+
+# never commit WordPress secrets (not in this repo, but just in case)
+wp-config.php

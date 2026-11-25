@@ -1,0 +1,15 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/boulderlandir/public_html
+    # --- custom front-end (static home + shared chrome + assets) ---
+    - /bin/cp -f  index.html                 "$DEPLOYPATH/index.html"
+    - /bin/cp -Rf components                  "$DEPLOYPATH/"
+    - /bin/cp -Rf assets                      "$DEPLOYPATH/"
+    - /bin/cp -Rf comps                       "$DEPLOYPATH/"
+    - /bin/cp -Rf courses                     "$DEPLOYPATH/"
+    - /bin/cp -Rf coaches                     "$DEPLOYPATH/"
+    # --- the custom plugin (merges into wp-content/plugins, nothing else touched) ---
+    - /bin/cp -Rf wp-content                  "$DEPLOYPATH/"
+    # NOTE: index.php, wp-config.php, .htaccess, wp core, uploads and other
+    # plugins/themes are intentionally NOT deployed — they belong to WordPress.
