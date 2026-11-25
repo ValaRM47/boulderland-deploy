@@ -36,6 +36,15 @@ function blcc_register_acf() {
 					'type'  => 'text',
 				),
 				array(
+					'key'          => 'field_blcc_certs',
+					'label'        => 'گواهینامه‌ها',
+					'name'         => 'blcc_certs',
+					'type'         => 'textarea',
+					'rows'         => 3,
+					'new_lines'    => 'br',
+					'instructions' => 'هر گواهینامه را در یک خط بنویسید.',
+				),
+				array(
 					'key'   => 'field_blcc_education',
 					'label' => 'تحصیلات',
 					'name'  => 'blcc_education',
@@ -43,7 +52,7 @@ function blcc_register_acf() {
 				),
 				array(
 					'key'          => 'field_blcc_schedule',
-					'label'        => 'زمان‌های حضور',
+					'label'        => 'زمان حضور',
 					'name'         => 'blcc_schedule',
 					'type'         => 'textarea',
 					'rows'         => 3,

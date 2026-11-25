@@ -41,6 +41,7 @@ function blcc_rest_coaches() {
 			'id'        => (int) $id,
 			'name'      => get_the_title( $id ),
 			'specialty' => (string) blcc_get( $id, 'blcc_specialty', '' ),
+			'certs'     => (string) blcc_get( $id, 'blcc_certs', '' ),
 			'education' => (string) blcc_get( $id, 'blcc_education', '' ),
 			'schedule'  => (string) blcc_get( $id, 'blcc_schedule', '' ),
 			'photo'     => blcc_photo_url( $id ),

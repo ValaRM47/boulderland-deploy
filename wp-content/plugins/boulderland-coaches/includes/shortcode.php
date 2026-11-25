@@ -12,34 +12,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_shortcode( 'boulderland_coaches', 'blcc_shortcode' );
 
 /** Shared card markup, used by the shortcode (the static page mirrors this in JS). */
+function blcc_coach_icon( $k ) {
+	$icons = array(
+		'certs'     => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>',
+		'education' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4z"/><path d="M7 11v4.5c0 1.2 2.5 2.5 5 2.5s5-1.3 5-2.5V11"/><path d="M21 9v4"/></svg>',
+		'schedule'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+	);
+	return isset( $icons[ $k ] ) ? $icons[ $k ] : '';
+}
+
+/** One info row (icon + label + value); returns '' when the value is empty so nothing shows. */
+function blcc_coach_row( $key, $label, $value, $allow_br = false ) {
+	$plain = trim( wp_strip_all_tags( (string) $value ) );
+	if ( '' === $plain ) {
+		return '';
+	}
+	$val = $allow_br ? wp_kses( $value, array( 'br' => array() ) ) : esc_html( $value );
+	return '<div class="blcc-row">'
+		. '<span class="blcc-ico">' . blcc_coach_icon( $key ) . '</span>'
+		. '<div class="blcc-rt"><span class="k">' . esc_html( $label ) . '</span><span class="v">' . $val . '</span></div>'
+		. '</div>';
+}
+
 function blcc_coach_card_html( $id ) {
 	$name      = get_the_title( $id );
 	$photo     = blcc_photo_url( $id );
 	$specialty = (string) blcc_get( $id, 'blcc_specialty', '' );
+	$certs     = (string) blcc_get( $id, 'blcc_certs', '' );
 	$education = (string) blcc_get( $id, 'blcc_education', '' );
 	$schedule  = (string) blcc_get( $id, 'blcc_schedule', '' );
 
-	$rows = '';
-	if ( '' !== trim( $specialty ) ) {
-		$rows .= '<div class="blcc-row"><span class="k">تخصص</span><span class="v">' . esc_html( $specialty ) . '</span></div>';
-	}
-	if ( '' !== trim( $education ) ) {
-		$rows .= '<div class="blcc-row"><span class="k">تحصیلات</span><span class="v">' . esc_html( $education ) . '</span></div>';
-	}
-	if ( '' !== trim( wp_strip_all_tags( $schedule ) ) ) {
-		$rows .= '<div class="blcc-row"><span class="k">زمان‌های حضور</span><span class="v">' . wp_kses( $schedule, array( 'br' => array() ) ) . '</span></div>';
-	}
+	$rows  = blcc_coach_row( 'certs', 'گواهینامه‌ها', $certs, true );
+	$rows .= blcc_coach_row( 'education', 'تحصیلات', $education );
+	$rows .= blcc_coach_row( 'schedule', 'زمان حضور', $schedule, true );
 
 	$photo_html = $photo
 		? '<img src="' . esc_url( $photo ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />'
 		: '<div class="blcc-noimg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>';
 
+	$spec_html = '' !== trim( $specialty ) ? '<span class="blcc-spec">' . esc_html( $specialty ) . '</span>' : '';
+	$body_html = '' !== $rows ? '<div class="blcc-body">' . $rows . '</div>' : '';
+
 	return '<article class="blcc-card">'
-		. '<div class="blcc-photo">' . $photo_html . '</div>'
-		. '<div class="blcc-info">'
-			. '<h3 class="blcc-name">' . esc_html( $name ) . '</h3>'
-			. '<div class="blcc-rows">' . $rows . '</div>'
+		. '<div class="blcc-media">' . $photo_html
+			. '<div class="blcc-overlay"><h3 class="blcc-name">' . esc_html( $name ) . '</h3>' . $spec_html . '</div>'
 		. '</div>'
+		. $body_html
 		. '</article>';
 }
 

@@ -3,8 +3,9 @@ Requires at least: WordPress 6.0
 Requires PHP: 7.4
 Recommended: Advanced Custom Fields (ACF) — free version is enough
 
-Coach cards for Boulderland: a photo on one side and the coach's info on the other
-(نام، تخصص، تحصیلات، زمان‌های حضور). Cards are reorderable by drag‑and‑drop.
+Portrait coach cards for Boulderland: a photo with the name (and تخصص) over it, then
+the coach's info below (گواهینامه‌ها، تحصیلات، زمان حضور). Empty fields are hidden.
+Cards are reorderable by drag‑and‑drop.
 
 == Install ==
 1. Zip the `boulderland-coaches` folder → Plugins → Add New → Upload → Activate.
@@ -13,7 +14,7 @@ Coach cards for Boulderland: a photo on one side and the coach's info on the oth
 == Add coaches ==
 WordPress admin → «مربیان» → «مربی جدید»:
   - Title = نام مربی
-  - ACF box «مشخصات مربی»: عکس مربی، تخصص، تحصیلات، زمان‌های حضور.
+  - ACF box «مشخصات مربی»: عکس مربی، تخصص، گواهینامه‌ها، تحصیلات، زمان حضور.
 
 == Reorder ==
 In «مربیان» list, **drag the rows** up/down to set the order (saved automatically).
