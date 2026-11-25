@@ -16,10 +16,7 @@
       <a href="/#contact">تماس</a>
     </nav>
     <div style="display:flex;align-items:center;gap:14px">
-      <a class="btn btn-primary" href="/comps/results.php">
-        نتایج لید کاپ
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
-      </a>
+      <a class="btn btn-primary" href="#" data-visit style="background:var(--forest);color:var(--sand)">خرید بلیت ورودی</a>
       <button class="nav-toggle" id="navToggle" aria-label="باز کردن منو">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>

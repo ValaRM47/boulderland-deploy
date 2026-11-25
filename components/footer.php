@@ -53,3 +53,21 @@
     </div>
   </div>
 </footer>
+
+<!-- visit modal (shared) -->
+<div class="modal-overlay" id="visitModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="visitTitle">
+    <button class="modal-close" id="visitClose" aria-label="بستن">
+      <svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    </div>
+    <h3 id="visitTitle">بازدید از باشگاه بلدرلند</h3>
+    <p>برای تهیه‌ی بلیط ورودی و بازدید از سالن سنگ‌نوردی بلدرلند، شما می‌تونین هر روز از ساعت ۹ صبح تا ۱۱ شب به ما سر بزنین.</p>
+    <a class="btn-map" href="https://maps.app.goo.gl/YWu2NyDTGdBJ7E9s7" target="_blank" rel="noopener">
+      مشاهده روی نقشه
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    </a>
+  </div>
+</div>
