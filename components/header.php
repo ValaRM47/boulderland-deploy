@@ -11,8 +11,6 @@
       <a href="/"<?= $PAGE==='home'?' class="active"':'' ?>>خانه</a>
       <a href="/#walls">دیواره‌ها</a>
       <a href="/#coaches">مربیان</a>
-      <a href="/courses/"<?= $PAGE==='courses'?' class="active"':'' ?>>دوره‌ها</a>
-      <a href="/comps/detail.php"<?= $PAGE==='comps'?' class="active"':'' ?>>مسابقات</a>
       <a href="/#contact">تماس</a>
     </nav>
     <div style="display:flex;align-items:center;gap:14px">
@@ -32,7 +30,5 @@
   <a href="/">خانه</a>
   <a href="/#walls">دیواره‌ها</a>
   <a href="/#coaches">مربیان</a>
-  <a href="/courses/">دوره‌ها</a>
-  <a href="/comps/detail.php">مسابقات</a>
   <a href="/#contact">تماس</a>
 </div>

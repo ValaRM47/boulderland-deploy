@@ -9,6 +9,8 @@ deployment:
     - /bin/cp -Rf comps                       "$DEPLOYPATH/"
     - /bin/cp -Rf courses                     "$DEPLOYPATH/"
     - /bin/cp -Rf coaches                     "$DEPLOYPATH/"
+    # remove the stale static courses page so courses/index.php is served (not the old index.html)
+    - /bin/rm -f "$DEPLOYPATH/courses/index.html"
     # --- the custom plugin (merges into wp-content/plugins, nothing else touched) ---
     - /bin/cp -Rf wp-content                  "$DEPLOYPATH/"
     # NOTE: index.php, wp-config.php, .htaccess, wp core, uploads and other
