@@ -10,7 +10,7 @@
     <nav class="nav-links" aria-label="ناوبری اصلی">
       <a href="/"<?= $PAGE==='home'?' class="active"':'' ?>>خانه</a>
       <a href="/#walls">دیواره‌ها</a>
-      <a href="/#coaches">مربیان</a>
+      <a href="/coaches/">مربیان</a>
       <a href="/#contact">تماس</a>
     </nav>
     <div style="display:flex;align-items:center;gap:14px">
@@ -29,6 +29,6 @@
   </button>
   <a href="/">خانه</a>
   <a href="/#walls">دیواره‌ها</a>
-  <a href="/#coaches">مربیان</a>
+  <a href="/coaches/">مربیان</a>
   <a href="/#contact">تماس</a>
 </div>
