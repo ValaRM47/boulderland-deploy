@@ -46,12 +46,13 @@
     var rows = row('certs', 'گواهینامه‌ها', c.certs, true)
       + row('education', 'تحصیلات', c.education)
       + row('schedule', 'زمان حضور', c.schedule, true);
-    var body = rows ? '<div class="blcc-body">' + rows + '</div>' : '';
+    var rowsWrap = rows ? '<div class="blcc-rows">' + rows + '</div>' : '';
     return '<article class="blcc-card">'
-      + '<div class="blcc-media">' + photo
-        + '<div class="blcc-overlay"><h3 class="blcc-name">' + esc(c.name) + '</h3>' + spec + '</div>'
+      + '<div class="blcc-photo">' + photo + '</div>'
+      + '<div class="blcc-info">'
+        + '<div class="blcc-head"><h3 class="blcc-name">' + esc(c.name) + '</h3>' + spec + '</div>'
+        + rowsWrap
       + '</div>'
-      + body
       + '</article>';
   }
 

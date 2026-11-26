@@ -51,13 +51,14 @@ function blcc_coach_card_html( $id ) {
 		: '<div class="blcc-noimg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>';
 
 	$spec_html = '' !== trim( $specialty ) ? '<span class="blcc-spec">' . esc_html( $specialty ) . '</span>' : '';
-	$body_html = '' !== $rows ? '<div class="blcc-body">' . $rows . '</div>' : '';
+	$rows_html = '' !== $rows ? '<div class="blcc-rows">' . $rows . '</div>' : '';
 
 	return '<article class="blcc-card">'
-		. '<div class="blcc-media">' . $photo_html
-			. '<div class="blcc-overlay"><h3 class="blcc-name">' . esc_html( $name ) . '</h3>' . $spec_html . '</div>'
+		. '<div class="blcc-photo">' . $photo_html . '</div>'
+		. '<div class="blcc-info">'
+			. '<div class="blcc-head"><h3 class="blcc-name">' . esc_html( $name ) . '</h3>' . $spec_html . '</div>'
+			. $rows_html
 		. '</div>'
-		. $body_html
 		. '</article>';
 }
 

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/assets/css/global.css" />
 <link rel="stylesheet" href="/assets/css/header.css" />
 <link rel="stylesheet" href="/assets/css/footer.css" />
-<link rel="stylesheet" href="/assets/css/coaches.css?v=3" />
+<link rel="stylesheet" href="/assets/css/coaches.css?v=4" />
 </head>
 <body>
 
@@ -36,6 +36,6 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/components/footer.php'; ?>
 
 <script src="/assets/js/main.js" defer></script>
-<script src="/assets/js/coaches.js?v=3" defer></script>
+<script src="/assets/js/coaches.js?v=4" defer></script>
 </body>
 </html>
