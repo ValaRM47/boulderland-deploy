@@ -17,9 +17,14 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   }
-  // multi-line text may contain <br> (from ACF) or newlines — escape text, keep line breaks
+  // multi-line text may contain <br> (from ACF) AND a trailing newline — collapse any run
+  // of breaks/newlines into a SINGLE <br> so lines aren't double-spaced.
   function multiline(s) {
-    return esc(s).replace(/&lt;br\s*\/?&gt;/gi, '<br>').replace(/\r?\n/g, '<br>');
+    return esc(s)
+      .replace(/&lt;br\s*\/?&gt;/gi, '\n')
+      .replace(/\r/g, '')
+      .replace(/\n+/g, '<br>')
+      .replace(/^<br>|<br>$/g, '');
   }
   // one info row; returns '' when the value is empty so nothing shows on the card
   function row(key, label, value, allowBr) {
